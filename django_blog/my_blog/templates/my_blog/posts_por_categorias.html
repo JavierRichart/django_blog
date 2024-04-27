@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts por categoria - {{ categoria.nombre }}</title>
+</head>
+<body>
+    <h1>Post por categoría - {{ categoria.nombre }}</h1>
+    {% for post in posts %}
+        <li><a href="{% url 'detalle_post' post.id %}">{{ post.titulo }}</li>
+    {% endfor %}
+</body>
+</html>
