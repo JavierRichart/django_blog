@@ -3,7 +3,11 @@ from .models import Categoria, Post
 
 def lista_post(request):
     posts = Post.objects.all()
-    return render(request, 'my_blog/lista_posts.html', {'posts': posts})
+    if not posts:
+        mensaje = "No hay posts disponibles en este momento"
+    else:
+        mensaje= None
+    return render(request, 'my_blog/lista_posts.html', {'posts': posts, 'mensaje': mensaje})
 
 def detalle_post(request, post_id):
     post = get_object_or_404(Post, pk=post_id)

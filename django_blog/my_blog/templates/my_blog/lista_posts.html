@@ -9,6 +9,9 @@
 </head>
 <body>
     <h1>Lista de posts</h1>
+    {% if mensaje %}
+        <p>{{ mensaje }}</p>
+    {% endif %}
     <ul>
         {% for post in posts %}
             <li><a href="{% url 'detalle_post' post.id %}">{{ post.titulo }}</a></li>
